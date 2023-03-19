@@ -1,0 +1,77 @@
+<%
+    let input_values = {
+        first_name: "",
+        last_name: "",
+        email_address: "",
+        password: "",
+        confirm_password: ""
+    };
+    let login_values = {
+        email_address: "",
+        password: ""
+    }
+    if(flashdata.input_values){
+        input_values = flashdata.input_values;
+    }else if(flashdata.login_values){
+        login_values = flashdata.login_values;
+    }
+%>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Registration - Login</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css"  type="text/css" >
+    </head>
+    <body>
+        <div class="col-md-4 border p-4">
+            <p class="h1">Sign Up</p>
+<% if(flashdata.validation_errors){
+        for(let index = 0; index < flashdata.validation_errors.length; index++){ 
+%>
+            <p class='alert alert-danger'><%= flashdata.validation_errors[index] %></p>
+<%      
+        } 
+    }else if(flashdata.success){
+%>
+            <p class='alert alert-success'><%= flashdata.success %></p>
+<%
+    }
+%>
+            <form action="students/process_registration" method="post" autocomplete="off">
+                <label for="first_name" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="<%= input_values.first_name %>">
+                <label for="last_name" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="<%= input_values.last_name %>">
+                <label for="email_address" class="form-label">Email:</label>
+                <input type="text" class="form-control" id="email_address" name="email_address" value="<%= input_values.email_address %>">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" value="<%= input_values.password %>">
+                <label for="confirm_password" class="form-label">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" value="<%= input_values.confirm_password %>">
+                <input type="submit" value="Submit" class="btn btn-primary mt-2">
+            </form>
+        </div>
+        <div class="col-md-4 border p-4">
+<% if(flashdata.login_errors){
+        for(let index = 0; index < flashdata.login_errors.length; index++){ 
+%>
+            <p class='alert alert-danger'><%= flashdata.login_errors[index] %></p>
+<%      
+        }
+    }
+%>
+            <p class="h1">Login</p>
+            <form action="students/process_login" method="post" autocomplete="off">
+                <input type="hidden" name="action" value="login">
+                <label for="login_email" class="form-label">Email:</label>
+                <input type="text" class="form-control" id="login_email" name="email_address" value="<%= login_values.email_address %>">
+                <label for="login_password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="login_password" name="password" value="<%= login_values.password %>">
+                <input type="submit" value="Submit" class="btn btn-primary mt-2">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+.col-md-4, .col-md-8 {
+    margin-left: 150px;
+    margin-top: 40px;
+    display: inline-block;
+    vertical-align: top;
+}
+.alert{
+    padding: 3px;
+}

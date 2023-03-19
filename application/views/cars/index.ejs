@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Cars</title>
+            <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <title>Welcome Page</title>
+    </head>
+    <body>
+        <div class="container justify-content-center">
+            <div class="col-md-6 border mt-4 p-4" style="margin: 0 auto;">
+                <div class="row">
+                    <div class="col-md-8"><p>You did <span class="fw-bold"><%= visits %>x</span> visiting this page.</p></div>
+                    <div class="col-md-4 text-end"><a class="btn btn-danger" href="/cars/reset">Reset</a></div>
+                </div>
+                <div class="row">
+                    <p>You have <span class="fw-bold"><%= cars.length %></span> cars!</p>
+                    <p>The cars in the database are as follows:</p>
+                    <ul class="list-group list-group-flush">
+                        <% for(let i = 0; i< cars.length; i++) { %>
+                            <li class="list-group-item"><%= cars[i].name %> - <%= cars[i].year %></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
