@@ -36,53 +36,19 @@ Express MVC framework is a powerful tool for building web applications that are 
     - run nodemon app.js
     - Congrats you can now use the Express MVC Framework
 
-# Folder Structure
-Express MVC Framework
-  └─────v1.0.0
-        ├── app.js
-        ├── package-lock
-        ├── package.json
-        ├── README.md
-        ├── route.js
-        |
-        ├── application/
-        │   ├── controllers/
-        │   ├── models/
-        │   └── views/
-        |
-        ├── assets/
-        │   ├── css/
-        │   ├── images/
-        │   └── javascript/
-        ├
-        ├── configs/
-        │   ├── base_config.js
-        │   └── database.js
-        |
-        ├── helpers/
-        │   └── FormValidation.js
-        |
-        ├── middlewares/
-        │   ├── EnableProfiler.js
-        │   ├── FlashData.js
-        │   └── RoutingMiddleware.js
-        |
-        └── system/
-           └── core/
-                ├── AutoloadController.js
-                ├── BaseController.js
-                └── BaseModel.js
-                
-                
- - project-name/
-  - src/
+# Folder Structure              
+ - Express MVC Framework/
+  - application/
+    - controllers/
+    - models/
+    - views/
+  - assets/
     - css/
-    - js/
     - images/
-  - dist/
-    - css/
     - js/
-    - images/
+  - configs/
+    - base_config.js
+    - database.js
   - tests/
   - docs/
   - README.md
