@@ -49,7 +49,20 @@ Express MVC framework is a powerful tool for building web applications that are 
   - configs/
     - base_config.js
     - database.js
-  - tests/
-  - docs/
+  - helpers/
+    - FormValidation.js
+  - middlewares/
+    - EnableProfiler.js
+    - FlashData.js
+    - RoutingMiddleware.js
+  - system/
+        - system/
+            - core/
+                - AutoloadController.js
+                - BaseController.js
+                - BaseModel.js
+  - app.js
+  - package-lock
+  - package.json
   - README.md
-  - LICENSE
+  - route.js
