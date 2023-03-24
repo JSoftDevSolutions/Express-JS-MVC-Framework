@@ -72,3 +72,18 @@ Express MVC Framework
                 ├── AutoloadController.js
                 ├── BaseController.js
                 └── BaseModel.js
+                
+                
+ - project-name/
+  - src/
+    - css/
+    - js/
+    - images/
+  - dist/
+    - css/
+    - js/
+    - images/
+  - tests/
+  - docs/
+  - README.md
+  - LICENSE
