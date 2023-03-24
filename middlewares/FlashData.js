@@ -4,20 +4,23 @@
 |   If there is no flash data in the session, it initializes an empty object to the "locals" object.
 |   If there is flash data in the session, pass it to the response locals object and clear the session flash data.
 */
-const flash_data = (request, response, next) => {
-    if(request.session.flashdata){
-        response.locals.flashdata = request.session.flashdata;
-        request.session.flashdata = null;
-    }else{
-        response.locals.flashdata = {};
-    }
-    // Set a flash data function
-    request.flashdata = (type, message) => {
-        if(!request.session.flashdata){
-            request.session.flashdata = {};
+class FlashData{
+    static flashdata_middleware(request, response, next){
+        request.start_time = new Date().getMilliseconds();
+        if(request.session.flashdata){
+            response.locals.flashdata = request.session.flashdata;
+            request.flash =  request.session.flashdata;
+            delete request.session.flashdata;
+        }else{
+            response.locals.flashdata = {};
         }
-        request.session.flashdata[type] = message;
-    };
-    next();
+        request.flashdata = (type, message) => {
+            if(!request.session.flashdata){
+                request.session.flashdata = {};
+            }
+            request.session.flashdata[type] = message;
+        };
+        next();
+    }
 }
-module.exports = flash_data;
+module.exports = FlashData.flashdata_middleware;
